@@ -19,6 +19,8 @@ function trocaCor(){
     miniRelogio.src = "./imagens/opcoes-cores/imagens-"+ corRelogio +"/imagem-1.jpeg";
     frenteRelogio.src ="./imagens/opcoes-cores/imagens-"+ corRelogio +"/imagem-2.jpeg";
 
+    nomeCorSelecionada = document.getElementById("nome-cor-selecionada")
+    nomeCorSelecionada.innerHTML = `Cor-` + corRelogio
     trocarImagem()
 }
 
@@ -33,4 +35,15 @@ function trocarImagem(){
 
     let visualizacao =  document.getElementById("imagem-visualizacao")
     visualizacao.src = pegandoImg
+}
+
+function trocarTamanho(tamanho){
+    let titulo = document.getElementById("titulo-produto")
+    if(tamanho == 1){
+        titulo.innerHTML = `Pulseira loop esportiva azul-inverno para caixa de 45 mm`
+    } else{
+        titulo.innerHTML = `Pulseira loop esportiva azul-inverno para caixa de 41 mm`
+
+    }
+    console.log(idTamanho)
 }
