@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/card.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Cadastro de alunos</title>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <nav class="navbar bg-body-tertiary shadow-sm p-3 mb-5 bg-white rounded" style="background-color: #f4f7f8;" >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/"> <span>Controle</span> de <strong>Estudantes</strong></a>
+        <div class="cadastro">
+          <strong>Cadastrar: </strong>
+          <a class="btn btn-link" href="/turmas" type="button">Sala</a>
+        </form>
+      </div>
+  </nav>
+
+    <div class="container">    
+          <form action="/editarAluno/<%= alunos.IDAluno %>" class="col-sm-4" method="post" enctype="multipart/form-data">
+              <h2>Editar informações do aluno</h2>
+              <div class="col-sm-12 foto">
+                  <div class="image-container">
+                      <img src="/img/<%= alunos.Foto %>" alt="Selecione uma imagem" id="foto" name="foto">
+                  </div>
+                  <input type="file" id="flImage" name="flImage" accept="image/*">
+              </div>
+              <div class="mb-3">
+                  <label class="form-label">Nome</label>
+                  <input type="text" class="form-control" value="<%= alunos.Nome %>" name="nome">
+              </div>
+              <div class="mb-3">
+                  <label class="form-label">Idade</label>
+                  <input type="text" class="form-control" value="<%= alunos.Idade %>" name="idade">
+              </div>
+              <div class="mb-3">
+                  <label class="form-label">Sexo</label>
+                  <input type="text" class="form-control" value="<%= alunos.Sexo %>" name="sexo">
+              </div>
+              <div class="mb-3">
+                  <label for="sala" class="form-label">Sala</label>
+                  <select class="form-select text-centerf form-control " id="sala" name="sala">
+                      <% for (let i=0; i<salas.length; i++) { %>
+                      <option value='<%= salas[i].IDSala %>' <%= alunos.IDSala == salas[i].IDSala ? 'selected' : ''%>> <%=
+                      salas[i].Nome %> </option>
+                      <% } %>
+                  </select>
+              </div>
+              <input class="btn btn-primary" type="submit" value="Atualizar" />
+          </form>
+     
+    </div>
+    <script src="/js/script.js"></script>
+</body>
+</html>
+
+

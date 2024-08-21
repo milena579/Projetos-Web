@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/ProjetoEstudante/style.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="css/card.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <title>Cadastro de alunos</title>
 </head>
@@ -14,81 +15,50 @@
 
     <nav class="navbar bg-body-tertiary shadow-sm p-3 mb-5 bg-white rounded" style="background-color: #f4f7f8;" >
       <div class="container-fluid">
-        <a class="navbar-brand" href="/ProjetoEstudante/index.html"> <span>Controle</span> de <strong>Estudantes</strong></a>
+        <a class="navbar-brand" href="/"> <span>Controle</span> de <strong>Estudantes</strong></a>
         <div class="cadastro">
           <strong>Cadastrar: </strong>
-          <a class="btn btn-link" href="/ProjetoEstudante/turmas.html" type="button">Sala</a>
+          <a class="btn btn-link" href="/turmas" type="button">Sala</a>
         </form>
       </div>
   </nav>
 
     <div class="container">
-      <form class="col-sm-4">
+      <form class="col-sm-4" method="post" action="/alunos" enctype="multipart/form-data">
         <h3>Cadastrar um novo aluno</h3>
-        <div class="foto">
-            <input type="file" name="" id="botaoImg" accept="image/*">
-            <img src="/ProjetoEstudante/imgs/do-utilizador.png" onclick="mudarFoto()" alt="" id="foto">
+        <div class="foto col-sm-12">
+            <input type="file" name="flImage" id="flImage" accept="image/*" >
+            <img src="/img/do-utilizador.png" alt="" id="foto" name="foto">
           </a>
         </div>
         <div class="mb-3">
           <label for="nome" class="form-label">Nome</label>
-          <input type="text" class="form-control" id="nome">
+          <input type="text" class="form-control" id="nome" name="nome">
         </div>
         <div class="mb-3">
           <label for="idade" class="form-label">Idade</label>
-          <input type="text" class="form-control" id="idade">
+          <input type="text" class="form-control" id="idade" name="idade">
         </div>
         <div class="mb-3">
             <label for="sexo" class="form-label">Sexo</label>
-            <input type="text" class="form-control" id="sexo">
+            <input type="text" class="form-control" id="sexo" name="sexo">
         </div>
         <div class="mb-3">
             <label for="sala" class="form-label">Sala:</label>
-            <select class="form-select text-centerf form-control " id="sala">
-                <option selected>Turmas</option>
+            <select class="form-select text-centerf form-control " id="sala" name="sala" required>
+                <% for (let i=0; i<salas.length; i++) { %>
+                <option value='<%= salas[i].IDSala %>'> <%= salas[i].Nome %> </option>
+                <% } %>
+                <!-- <option selected>Turmas</option>
                 <option value="1">TI</option>
                 <option value="2">Mecatronica</option>
-                <option value="3">Manufatura</option>
+                <option value="3">Manufatura</option> -->
             </select>
         </div>
     
         <button type="submit" class="btn btn-primary"><strong>Cadastrar</strong></button>
       </form>
     </div>
-
-    <style>
-      form{
-        border: solid 1px rgb(207, 207, 207);
-        padding: 20px;
-        
-      }
-      body .container{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .container{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .foto{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 30%;
-      }
-      .foto img{
-        border-radius: 50%;
-        border: solid 1px black;
-        padding: 5px;
-        max-width: 100%;
-      }
-      #botaoImg{
-        display: none;
-      }
-    </style>
-
-    <script src="/ProjetoEstudante/script.js"></script>
+    <script src="/js/script.js"></script>
 </body>
 </html>
