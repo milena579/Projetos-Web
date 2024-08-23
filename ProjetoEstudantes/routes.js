@@ -27,4 +27,9 @@ const editar = require('./src/controllers/editar');
 route.get('/editarAluno/:id', editar.alunos);
 route.post('/editarAluno/:id', multer(config).single('flImage'), editar.adicionar);
 
+
+const editarSala = require('./src/controllers/editarSala');
+route.get('/editarSala/:id', editarSala.salas);
+route.post('/editarSala/:id', editarSala.adicionar);
+
 module.exports = route;

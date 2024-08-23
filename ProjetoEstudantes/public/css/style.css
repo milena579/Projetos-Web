@@ -12,8 +12,23 @@ body{
     align-items: center;
 }
 
-.filtro{
+.infoSala{
+    display: flex;
+    padding: 20px;
     width: 100%;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.vagas {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: row;
+    gap: 5px
+}
+
+.filtro{
     display: flex;
     align-items: center;
     justify-content: flex-end;

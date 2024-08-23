@@ -28,8 +28,8 @@ module.exports = {
             where:(id? {IDSala:id}:{})
         });
 
-        const salas = await sala.findAll({ raw: true, attributes: ['IDSala', 'Nome'] });
+        const salas = await sala.findAll({ raw: true, attributes: ['IDSala', 'Nome', 'Capacidade'] });
+ 
         res.render('../views/index', {salas, alunos, id});
-    
     }
 }

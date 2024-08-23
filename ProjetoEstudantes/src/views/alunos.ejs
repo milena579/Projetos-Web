@@ -46,13 +46,9 @@
         <div class="mb-3">
             <label for="sala" class="form-label">Sala:</label>
             <select class="form-select text-centerf form-control " id="sala" name="sala" required>
-                <% for (let i=0; i<salas.length; i++) { %>
-                <option value='<%= salas[i].IDSala %>'> <%= salas[i].Nome %> </option>
-                <% } %>
-                <!-- <option selected>Turmas</option>
-                <option value="1">TI</option>
-                <option value="2">Mecatronica</option>
-                <option value="3">Manufatura</option> -->
+              <% for (let i=0; i<listaSalas.length; i++) { %>
+                <option value='<%= listaSalas[i].IDSala %>' > <%= listaSalas[i].Nome %> </option>
+              <% } %>
             </select>
         </div>
     

@@ -22,17 +22,34 @@
           </form>
         </div>
     </nav>
-
-    <div class="filtro">
-      <label for="">Sala de aula:</label>
-        <form action="/index" method="post">
-          <select class="form-select form-select-lg mb-2 col-sm-12 text-center" onchange="this.form.submit()" id="sala" name="nome">
-            <option value="">Selecione uma sala</option>
-            <% for (let i=0; i<salas.length; i++) { %>
-              <option value='<%= salas[i].IDSala %>' <%= id == salas[i].IDSala ? 'selected' : ''%>> <%= salas[i].Nome %> </option>
-            <% } %>
-          </select>
-        </form>
+    <div>
+    </div>
+    <div class="infoSala">
+      <div class="vagas">
+        <p>Vagas disponiveis: </p>
+        <p>
+          <%if(id){%>
+            <% for (let i=0; i <salas.length; i++) { %>     
+              <% if(salas[i].IDSala == id){ var capacidade = salas[i].Capacidade } %>
+            <% } %>   
+            <strong>
+              <p><%= capacidade - alunos.length %></p>
+            </strong>
+          <% } %>
+      </p>
+      </div>
+      <div class="filtro">
+        <label for="">Sala de aula:</label>
+          <form action="/index" method="post">
+            <select class="form-select form-select-lg mb-2 col-sm-12 text-center" onchange="this.form.submit()" id="sala" name="nome">
+              <option value="">Selecione uma sala</option>
+              <% for (let i=0; i<salas.length; i++) { %>
+                <option value='<%= salas[i].IDSala %>' <%= id == salas[i].IDSala ? 'selected' : ''%>> <%= salas[i].Nome %> </option>
+              <% } %>
+            </select>
+          </form>
+          <a href="/editarSala/<%= id %>" class="" <%= !id? 'hidden' : '' %>><button class="btn btn-primary">Editar Sala</button></a>
+      </div>
     </div>
 
     <div class="titulo">
